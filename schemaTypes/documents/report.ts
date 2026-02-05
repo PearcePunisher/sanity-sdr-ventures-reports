@@ -43,6 +43,16 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'pdf',
+      title: 'Report PDF',
+      type: 'file',
+      options: {
+        accept: 'application/pdf',
+        storeOriginalFilename: true,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',

@@ -38,7 +38,13 @@ export default defineType({
     }),
     defineField({
       name: 'role',
-      title: 'Role/Title',
+      title: 'Role (e.g., CEO, Marketing Manager)',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'division',
+      title: 'Division (e.g. Wellness & Health Services team)',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
