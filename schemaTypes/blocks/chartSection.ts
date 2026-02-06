@@ -12,37 +12,19 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'subtitle',
+      title: 'Chart Subtitle',
+      type: 'string',
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
       rows: 3,
     }),
     defineField({
-      name: 'chartType',
-      title: 'Chart Type',
-      type: 'string',
-      options: {
-        list: [
-          {title: 'Bar Chart', value: 'bar'},
-          {title: 'Line Chart', value: 'line'},
-          {title: 'Pie Chart', value: 'pie'},
-          {title: 'Area Chart', value: 'area'},
-          {title: 'Scatter Plot', value: 'scatter'},
-        ],
-        layout: 'dropdown',
-      },
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'data',
-      title: 'Chart Data (JSON)',
-      type: 'text',
-      rows: 10,
-      description: 'Enter chart data in JSON format',
-    }),
-    defineField({
       name: 'chartImage',
-      title: 'Chart Image (Alternative)',
+      title: 'Chart Image',
       type: 'image',
       description: 'Upload a chart image as an alternative to JSON data',
       options: {
@@ -56,17 +38,23 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: 'source',
+      title: 'Chart Source',
+      type: 'string',
+      description: 'Where the chart data or image originates',
+    }),
   ],
   preview: {
     select: {
       title: 'title',
-      chartType: 'chartType',
+      subtitle: 'subtitle',
       media: 'chartImage',
     },
-    prepare({title, chartType}) {
+    prepare({title, subtitle}) {
       return {
         title: title || 'Chart',
-        subtitle: chartType ? `${chartType} chart` : 'Chart Section',
+        subtitle: subtitle || 'Chart Section',
       }
     },
   },
