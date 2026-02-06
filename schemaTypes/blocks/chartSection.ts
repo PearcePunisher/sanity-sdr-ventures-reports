@@ -22,6 +22,28 @@ export default defineType({
       type: 'text',
       rows: 3,
     }),
+     defineField({
+      name: 'chartType',
+      title: 'Chart Type',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Image Only', value: 'image'},
+          {title: 'Bar Chart', value: 'bar'},
+          {title: 'Line Chart', value: 'line'},
+          {title: 'Pie Chart', value: 'pie'},
+          {title: 'Area Chart', value: 'area'},
+          {title: 'Scatter Plot', value: 'scatter'},
+        ],
+        layout: 'dropdown',
+      }
+    }),
+    defineField({
+      name: 'data',
+      title: 'Chart Data (JSON)',
+      type: 'text',
+      description: 'Enter chart data in JSON format',
+    }),
     defineField({
       name: 'chartImage',
       title: 'Chart Image',
