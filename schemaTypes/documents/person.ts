@@ -55,6 +55,13 @@ export default defineType({
       of: [{type: 'block'}],
     }),
     defineField({
+      name: 'bioLink',
+      title: 'Bio Link',
+      type: 'url',
+      description: 'Link to an external biography page',
+      validation: (Rule) => Rule.uri({scheme: ['http', 'https']}),
+    }),
+    defineField({
       name: 'email',
       title: 'Email',
       type: 'string',
